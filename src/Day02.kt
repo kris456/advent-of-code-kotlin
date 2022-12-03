@@ -63,29 +63,6 @@ enum class Shape(val scoreValue: Int, val codeLetter: Char) {
     }
 }
 
-enum class RPS(
-    val foeCodeLetter: Char,
-    val myCodeLetter: Char,
-    val scoreValue: Int
-) {
-    Rock('A', 'X', 1),
-    Paper('B', 'Y', 2),
-    Scissor('C', 'Z', 3);
-
-    companion object {
-        fun from(codeLetter: Char): RPS {
-            return RPS.values().first { it.foeCodeLetter == codeLetter || it.myCodeLetter == codeLetter }
-        }
-
-        fun fromPlayStrategy(strategy: Char, foeChooses: RPS) {
-            when (strategy) {
-                'X' -> TODO()
-                'Y' -> TODO()
-                'Z' -> TODO()
-            }
-        }
-    }
-}
 
 fun main() {
     fun part1(input: List<String>): Int {
