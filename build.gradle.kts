@@ -1,5 +1,16 @@
+group="dev.sirch"
+
+java.sourceCompatibility = JavaVersion.VERSION_19
+
+
 plugins {
-    kotlin("jvm") version "1.7.22"
+    kotlin("jvm") version(Versions.kotlin)
+}
+
+dependencies {
+    testImplementation( "org.junit.jupiter:junit-jupiter-api:${Versions.junit}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${Versions.junit}")
+    testImplementation("com.willowtreeapps.assertk:assertk-jvm:${Versions.assertk}")
 }
 
 repositories {
@@ -7,13 +18,10 @@ repositories {
 }
 
 tasks {
-    sourceSets {
-        main {
-            java.srcDirs("src")
-        }
-    }
+    register<NewDayTask>("newDay")
 
-    wrapper {
-        gradleVersion = "7.6"
+    test{
+        useJUnitPlatform()
     }
 }
+
